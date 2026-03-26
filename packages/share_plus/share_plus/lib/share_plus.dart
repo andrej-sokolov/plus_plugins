@@ -102,7 +102,7 @@ class SharePlus {
     return _platform.share(params);
   }
 
-  static Future<void> close() async {
+  Future<void> close() async {
     return _platform.close();
   }
 }
