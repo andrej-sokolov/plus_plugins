@@ -392,6 +392,16 @@ activityTypesForStrings(NSArray<NSString *> *activityTypeStrings) {
                                    message:@"No share content provided"
                                    details:nil]);
       }
+    } else if ([@"close" isEqualToString:call.method]) {
+      UIViewController *rootViewController = RootViewController();
+      if (!rootViewController) {
+        result([FlutterError errorWithCode:@"error"
+                                   message:@"No root view controller found"
+                                   details:nil]);
+        return;
+      }
+      UIViewController *topViewController = TopViewControllerForViewController(rootViewController);
+      [topViewController dismissViewControllerAnimated:YES completion:nil];
     } else {
       result(FlutterMethodNotImplemented);
     }

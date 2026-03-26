@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart' show visibleForTesting;
 import 'package:mime/mime.dart' show extensionFromMime, lookupMimeType;
@@ -75,6 +76,15 @@ class MethodChannelShare extends SharePlatform {
     }
 
     return map;
+  }
+
+  @override
+  Future<void> close(){
+    if (defaultTargetPlatform != TargetPlatform.iOS) {
+      return Future<void>.value();
+    }
+
+    return channel.invokeMethod<void>('close');
   }
 
   /// Ensure that a file is readable from the file system.

@@ -225,6 +225,13 @@ class SharePlusWebPlugin extends SharePlatform {
     return lookupMimeType(file.name, headerBytes: bytes) ??
         'application/octet-stream';
   }
+
+  @override
+  Future<void> close() async {
+    throw UnimplementedError(
+      'close() has not been implemented on Web.',
+    );
+  }
 }
 
 const _resultDismissed = ShareResult(

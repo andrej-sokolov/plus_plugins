@@ -242,4 +242,8 @@ class Share {
       ),
     );
   }
+
+  static Future<void> close() async {
+    return _platform.close();
+  }
 }

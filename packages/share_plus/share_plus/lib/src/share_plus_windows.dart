@@ -54,4 +54,11 @@ class SharePlusWindowsPlugin extends SharePlatform {
 
     return ShareResult.unavailable;
   }
+
+  @override
+  Future<void> close() async {
+    throw UnimplementedError(
+      'close() has not been implemented on Web.',
+    );
+  }
 }
