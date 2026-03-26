@@ -101,6 +101,10 @@ class SharePlus {
 
     return _platform.share(params);
   }
+
+  static Future<void> close() async {
+    return _platform.close();
+  }
 }
 
 @Deprecated('Use SharePlus instead')
@@ -241,9 +245,5 @@ class Share {
         downloadFallbackEnabled: downloadFallbackEnabled,
       ),
     );
-  }
-
-  Future<void> close() async {
-    return _platform.close();
   }
 }
